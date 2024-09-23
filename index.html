@@ -4,12 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Care</title>
+    <script
+      src="https://kit.fontawesome.com/d0289aff24.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <!-- navbar -->
     <nav>
-      <div class="nav-bar"></div>
+      <div class="nav-bar collapsible">
+        <div class="nav-image">
+          <img src="images/logo (2).png" alt="logo image" />
+        </div>
+        <ul class="nav-list collapsible__content">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li>
+            <a href="#"> <i class="fa-solid fa-cart-shopping"></i></a>
+          </li>
+        </ul>
+        <i class="fa-regular fa-thumbs-up"></i>
+        <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">☰</div>
+      </div>
     </nav>
+    <!-- end of nav section -->
+    <script src="js/script.js"></script>
   </body>
 </html>
