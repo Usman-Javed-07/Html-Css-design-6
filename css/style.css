@@ -10,12 +10,12 @@ body {
 }
 /* nav section */
 .nav-bar {
+    position: sticky;
     display: flex;
     justify-content: space-around;
     padding: 1.2rem;
     align-items: center;
     background: #e3e6f3;
-    position: sticky;
     width: 100%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) ;
     z-index: 999;
@@ -92,3 +92,19 @@ body {
      }
 }
 /* end of nav section */
+.header-mian {
+    background: url(../images/hero4.png);
+    width: 100%;
+    height: 93vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header-data{
+
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  
+}
