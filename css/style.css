@@ -266,6 +266,13 @@ body {
 .f6 {
     background: #fff2e5;
 }
+.order-data:hover {
+    box-shadow: 10px 10px 54px rgba(0, 0, 0, 0.1);;
+}
+.order-btn:hover {
+    background: #088178;
+    color: white;
+}
 /* end of order section */
 
 /* featured section */
@@ -294,14 +301,153 @@ body {
 /* end of featured section */
 
 /* cart section */
+.card-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
 .main-card {
     margin-top: 5%;
-    border: 1px solid black;
-    border-radius: 26px;
+    border: 1px solid #cce7d0;
+    border-radius: 20px;
     width: 300px;
     height: 500px;
+    cursor: pointer;
+    padding: 10px;
+    box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
 }
 .card-image img {
-    width: 270px;
+    max-width: 100%;
+    width: 280px;
     height: 270px;
+    border-radius: 20px;
+}
+.card-data {
+    padding: 10px;
+}
+.card-data P {
+    color: #606063;
+    font-size: 12px;
+}
+.card-data h3 {
+    padding-top: 7px;
+    color: #1a1a1a;
+    font-size: 14px;
+}
+.fa-star {
+    color: rgb(243, 181, 25);
+    font-size: 12px;
+    padding-top: 7px;
+}
+.card-data .price {
+    color: #088178;
+    padding-top: 15px;
+}
+.card-data .product-id {
+    color: #465b52;
+    padding-top: 5px;
+}
+.card-shopping {
+    margin-top: 30px;
+    border: 1px solid rgb(142, 139, 139);
+    padding: 10px 10px;
+    width: 17%;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background: #dbe0dc
+}
+.add-card {
+    padding-top: 1px;
+    color: #088178;
+}
+.main-card:hover{
+    box-shadow: 10px 10px 54px rgba(0, 0, 0, 0.1);
+}
+@media screen and (max-width:768px) {
+    .add-card {
+        display: block;
+    }
+}
+/* end of card section */
+
+/* explore section */
+.explore-more {
+   margin-top: 50px;
+   background: url(../images/repair.jpg);
+   width: 100%;
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 40vh;
+
+}
+.explore-us {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+.explore-us p {
+    font-weight: 600;
+    padding-bottom: 40px;
+}
+.explore-us h3 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    padding-bottom: 40px;
+}
+.discount {
+    color: red;
+} 
+.explore-btn {
+ text-decoration: none;
+ color:#212020;
+ background: #fff;
+padding: 15px 20px;
+border-radius: 5px;
+font-weight: 600
+}
+.explore-btn:hover {
+    background: #000;
+    color: #fff;
+}
+@media screen and (max-width:768px) {
+    .explore-us h3 {
+        font-size: 1.2rem;
+    }
+    .explore-btn  {
+        font-size: 0.7rem;
+    }
+}
+/* end of explore section */
+
+/* arrivals section */
+.arrivals {
+    margin-top: 50px;
+}
+.arrival-heading {
+    text-align: center;
+}
+.arrival-heading h3 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    padding-bottom: 10px;
+}
+.arrival-heading p {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #465b52;
+}
+.arrivales-sale-one {
+    background: url(../images/arrival1.jpg);
+    width: 580px;
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
