@@ -10,7 +10,6 @@ body {
 }
 /* nav section */
 .nav-bar {
-    position: sticky;
     display: flex;
     justify-content: space-around;
     padding: 1.2rem;
@@ -19,6 +18,7 @@ body {
     width: 100%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) ;
     z-index: 999;
+    position: sticky;
 }
 .nav-list {
     list-style: none;
@@ -604,6 +604,7 @@ transition: 0.5s ease;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
+    padding: 20px;
    }
    .signup-form input {
     padding: 8px 30px;
@@ -613,7 +614,7 @@ transition: 0.5s ease;
     border-radius: 5px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    max-width: 100%;
+    width: 100%;
    }
    .signup-form {
     margin-top: 40px;
@@ -623,11 +624,13 @@ transition: 0.5s ease;
     text-decoration: none;
     color: #fff;
     background: #088178;
-    padding: 8px 10px;
+    padding: 15px 30px;
     font-size: 13px;
     border-radius: 5px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    text-align: center;
+    font-weight: 700;
    }
    @media screen and (max-width:430px) {
     .info h4 {
@@ -645,6 +648,7 @@ transition: 0.5s ease;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    padding: 20px;
    }
    .footer-contact img {
     padding-bottom: 30px;
@@ -724,4 +728,21 @@ transition: 0.5s ease;
     font-size: 13px;
     padding-top: 10px;
     color: #465b52;
+   }
+   .app-and-play-store {
+    padding-top: 30px;
+    padding-bottom: 30px;
+   }
+   .app-and-play-store img {
+    border: 1px solid #088178;
+    border-radius: 5px;
+   }
+   .payment-img {
+    padding-top: 30px;
+   }
+   @media screen and (max-width:768px) {
+    .footer-main {
+        display: block;
+        text-align: center;
+    }
    }
