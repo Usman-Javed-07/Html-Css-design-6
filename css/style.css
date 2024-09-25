@@ -178,6 +178,7 @@ body {
 @media screen and (max-width:430px) {
     .header-mian  {
         /* background: url(../images/hero4-mobile.png); */
+        background: none;
         text-align: center;
         width: 100%;
         height: 90vh;
