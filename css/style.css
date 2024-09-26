@@ -975,10 +975,31 @@ transition: 0.5s ease;
     padding: 30px;
 }
 .about--info {
-    padding: 10px;
+    padding: 20px;
     line-height: 30px;
 }
 .about--info h3 {
-    font-size: 2rem;
+    font-size: 2.4rem;
     padding-bottom:  20px;
+}
+.about--info  p {
+    padding-bottom: 30px;
+    color: #465b52;
+}
+.about--info .about-p {
+    color: #000;
+}
+@media screen and (max-width:768px) {
+    .about--info {
+        text-align: center;
+        font-size: 12px;
+    }
+}
+@media screen and (max-width:430px) {
+    .about--info h3 {
+        font-size: 18px;
+    }
+    .about-us-section img  {
+        height: 250px;
+    }
 }
