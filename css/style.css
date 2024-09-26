@@ -1181,3 +1181,8 @@ textarea {
 .activeLink {
     color: #088178;
 }
+.copyright-to {
+    font-size: 12px;
+    text-align: end;
+    padding: 30px 50px 5px 0 ;
+}
