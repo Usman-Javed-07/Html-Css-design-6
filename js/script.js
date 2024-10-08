@@ -23,3 +23,19 @@ for (let i = 0; i < removeCardItemButton.length ; i++) {
     buttonclicked.parentElement.parentElement.remove();
   });
 }
+
+
+let productData = [
+  {
+      prodID: 19,
+      prodName: "Cartoon Shirt",
+      prodAdress: "img/products/f1.jpg",
+      prodBrand: "Adidas",
+      categories: ["men", "shirts", "featured"],
+      prodPrice: 78,
+  }
+]
+
+
+
+
