@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/d0289aff24.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Add to card</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-bar collapsible">
+        <div class="nav-image">
+          <img src="images/logo (2).png" alt="logo image" />
+        </div>
+        <ul class="nav-list collapsible__content">
+          <li><a href="index.html" class="home">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li>
+            <a href="card.html"> <i class="fa-solid fa-cart-shopping"></i></a>
+          </li>
+        </ul>
+        <i class="fa-regular fa-thumbs-up"></i>
+        <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">☰</div>
+      </div>
+    </nav>
+
+    <!--  -->
+    <header>
+      <div class="about-header">
+        <div class="about-header-data">
+          <h3># Let's Talk</h3>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+      </div>
+    </header>
+
+    <!--  -->
+
+    <section id="cart" class="section-p1">
+      <table width="100%">
+        <thead>
+          <tr>
+            <td>Remove</td>
+            <td>Image</td>
+            <td>Product ID</td>
+            <td>Product</td>
+            <td>Unit Price</td>
+            <td>Quantity</td>
+            <td>Subtotal</td>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- will be filled up dynamically -->
+          <tr>
+            <td class="remove">
+              <button class="remove-Btn">
+                <i class="fa fa-times-circle"></i>
+              </button>
+            </td>
+            <td class="imgAdress">
+              <img src="${currProd.prodAdress}" alt="" />
+            </td>
+            <td class="ID">${currProd.prodID}</td>
+            <td class="name">${currProd.prodName}</td>
+            <td class="price">$${currProd.prodPrice}</td>
+            <td>
+              <input
+                type="number"
+                value="${quantity}"
+                min="1"
+                class="quantity-input"
+              />
+            </td>
+            <td class="subtotal">$${subtotal}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="cart-add">
+      <div id="coupon">
+        <h3>Apply Coupon</h3>
+        <div>
+          <input type="text" placeholder="Enter Coupon Code" />
+          <button class="normal">Apply</button>
+        </div>
+        <h4>Invalid Code</h4>
+      </div>
+      <div id="subtotal">
+        <h3>Cart Totals</h3>
+        <table>
+          <tr>
+            <td>Cart Subtotal</td>
+            <td class="sumSubTotals"></td>
+          </tr>
+          <tr>
+            <td>Shipping</td>
+            <td class="shipping">Free</td>
+          </tr>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td class="grandTotal"><strong></strong></td>
+          </tr>
+        </table>
+        <button class="normal">Proceed To Checkout</button>
+      </div>
+    </section>
+
+    <!--  -->
+
+    <footer>
+      <div class="footer-main">
+        <div class="footer-contact">
+          <img src="images/logo (2).png" alt="logo image" />
+          <h5>Contact</h5>
+          <p>
+            <strong>Address: </strong>657 Wellington Road, Street 32, san
+            Francisco
+          </p>
+          <p><strong>Phone: </strong>+01 151151353 / (+92) 012155845</p>
+          <p><strong>Hours: </strong>10:00 - 18:00 MOn to Sat</p>
+          <h6>Follow Us</h6>
+          <div class="footer-icon">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-pinterest"></i>
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+        </div>
+        <!--  -->
+        <div class="footer-about footer-list">
+          <h5>About</h5>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Delivery Information</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Trems & Conditions</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <!--  -->
+        <div class="footer-account footer-list">
+          <h5>My Account</h5>
+          <ul>
+            <li><a href="#">Sign In</a></li>
+            <li><a href="#">View Cart</a></li>
+            <li><a href="#">My Wishlist</a></li>
+            <li><a href="#">Track My Order</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </div>
+        <!--  -->
+        <div class="footer-apps">
+          <h5>Install App</h5>
+          <p>From the App Store or Google Play</p>
+          <div class="app-and-play-store">
+            <img src="images/app.jpg" alt="app store" />
+            <img src="images/play.jpg" alt="play store" />
+          </div>
+          <p>Secure Payment Gateway</p>
+          <img class="payment-img" src="images/pay.png" alt="payment method" />
+        </div>
+      </div>
+      <p class="copyright-to">&copy; 2024 by Usman Javed</p>
+    </footer>
+    <script src="js/script.js"></script>
+  </body>
+</html>
