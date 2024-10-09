@@ -27,7 +27,7 @@ const productItems = [
   {
     productID : 37,
     productName : 'Havain shirt',
-    productImage : 'images/card 2.jpg',
+    productImage : 'images/card2.jpg',
     productBrand : 'Chanel',
     productPrice : 111,
     // categories : ['men' , 'shirts', 'featured'],
@@ -106,20 +106,17 @@ const productItems = [
 },
 ]
 
-console.log(productItems[0]);
-
-for (let i = 0 ; i <= productItems.length; i++) {
-  // console.log(productItems[i]);
+for (let i = 0 ; i < productItems.length-1; i++) {
 
   let k=`
  
         <div class="main-card">
           <div class="card-image">
-           <img src=${productItems[0].productImage} alt="card image" />
+           <img src=${productItems[i].productImage} alt="card image" />
           </div>
           <div class="card-data">
-            <p>${productItems[0].productBrand}</p>
-            <h3> ${productItems[0].productName}</h3>
+            <p>${productItems[i].productBrand}</p>
+            <h3> ${productItems[i].productName}</h3>
             <div class="star">
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
@@ -127,18 +124,26 @@ for (let i = 0 ; i <= productItems.length; i++) {
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
             </div>
-            <h3 class="price">${productItems[0].productPrice}</h3>
-            <p class="product-id">Product iD :- ${productItems[0].productID}</p>
+            <h3 class="price">$ ${productItems[i].productPrice}</h3>
+            <p class="product-id">Product iD :- ${productItems[i].productID}</p>
             <div class="card-shopping">
-              <button>
+              <button onclick="cardData(${productItems[i].productID})">
                 <i class="fa-solid fa-cart-shopping add-card"></i>
               </button>
             </div>
           </div>
         </div>
   `
-  const cardSection=document.querySelector(".card-section")
-  cardSection.innerHTML+=k
- 
-  // console.log(k);
+  const cardSection=document.querySelector(".card-section");
+  cardSection.innerHTML+=k;
 }
+
+let cartitems = [];
+
+ const cardData = (productid ) => {
+ console.log('hello ')
+ console.log(productid)
+ }
+
+let result = productItems.find(obj => obj.productID === 55);
+console.log(result);
