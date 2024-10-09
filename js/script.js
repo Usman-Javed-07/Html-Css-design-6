@@ -146,4 +146,5 @@ let cartitems = [];
  }
 
 let result = productItems.find(obj => obj.productID === 55);
-console.log(result);
+cartitems.push(result)
+console.log(cartitems);
