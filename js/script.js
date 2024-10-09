@@ -107,9 +107,34 @@ const productItems = [
 ]
 
 for (var i = 0 ; i < productItems.length; i++) {
-  debugger
-  console.log(productItems[i][productID]);
+  // console.log(productItems[i]);
   let k=`
-   
+ 
+        <div class="main-card">
+          <div class="card-image">
+           <img src=${productItems.productImage} alt="card image" />
+          </div>
+          <div class="card-data">
+            <p>${productItems.productBrand}</p>
+            <h3> ${productItems.productName}</h3>
+            <div class="star">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <h3 class="${productItems.productPrice}">$76</h3>
+            <p class="product-id">Product iD :- ${productItems.productID}</p>
+            <div class="card-shopping">
+              <button>
+                <i class="fa-solid fa-cart-shopping add-card"></i>
+              </button>
+            </div>
+          </div>
+        </div>
   `
+  const cardSection=document.querySelector(".card-section")
+  cardSection.innerHTML+=k
+  // console.log(k);
 }
