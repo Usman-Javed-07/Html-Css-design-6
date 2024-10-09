@@ -106,17 +106,20 @@ const productItems = [
 },
 ]
 
-for (var i = 0 ; i < productItems.length; i++) {
+console.log(productItems[0]);
+
+for (let i = 0 ; i <= productItems.length; i++) {
   // console.log(productItems[i]);
+
   let k=`
  
         <div class="main-card">
           <div class="card-image">
-           <img src=${productItems.productImage} alt="card image" />
+           <img src=${productItems[0].productImage} alt="card image" />
           </div>
           <div class="card-data">
-            <p>${productItems.productBrand}</p>
-            <h3> ${productItems.productName}</h3>
+            <p>${productItems[0].productBrand}</p>
+            <h3> ${productItems[0].productName}</h3>
             <div class="star">
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
@@ -124,8 +127,8 @@ for (var i = 0 ; i < productItems.length; i++) {
               <i class="fa-solid fa-star"></i>
               <i class="fa-solid fa-star"></i>
             </div>
-            <h3 class="${productItems.productPrice}">$76</h3>
-            <p class="product-id">Product iD :- ${productItems.productID}</p>
+            <h3 class="price">${productItems[0].productPrice}</h3>
+            <p class="product-id">Product iD :- ${productItems[0].productID}</p>
             <div class="card-shopping">
               <button>
                 <i class="fa-solid fa-cart-shopping add-card"></i>
@@ -136,5 +139,6 @@ for (var i = 0 ; i < productItems.length; i++) {
   `
   const cardSection=document.querySelector(".card-section")
   cardSection.innerHTML+=k
+ 
   // console.log(k);
 }
