@@ -141,10 +141,13 @@ for (let i = 0 ; i < productItems.length-1; i++) {
 let cartitems = [];
 
  const cardData = (productid ) => {
- console.log('hello ')
- console.log(productid)
+  let result = productItems.find(obj => obj.productID ===  productid);
+  cartitems.push(result)
+  console.log(cartitems);
+
+  localStorage.setItem('product Data', JSON.stringify(cartitems));
+
  }
 
-let result = productItems.find(obj => obj.productID === 55);
-cartitems.push(result)
-console.log(cartitems);
+
+ console.log (' local storage data' , localStorage.getItem('product Data'))
