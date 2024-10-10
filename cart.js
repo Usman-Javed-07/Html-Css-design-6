@@ -38,3 +38,11 @@ let cartData =`
 // remove button 
 
 
+// const removeCard = document.getElementsByClassName('remove-Btn');
+//  function remove () {
+//     removeCard.removeEventListner('click', removeCard)
+//  }
+
+// document.getElementsByClassName ('remove-Btn').removeEventListner ('click', ()=> {
+//     console.log('clicked')
+// })
