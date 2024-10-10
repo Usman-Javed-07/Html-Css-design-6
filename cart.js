@@ -1,23 +1,23 @@
 
 let currentData = JSON.parse(localStorage.getItem('product Data'));
 
-
+for (let i =0 ; i < currentData.length ; i++) {
 let cartData =`
- <tbody> 
+              <table>
                <tr>
 
                <td class="remove">
             
-              <button class="remove-Btn">
+              <button onclick="removeCard( class="remove-Btn)"">
                 <i class="fa fa-times-circle"></i>
               </button>
             </td>
             <td class="imgAdress">
-              <img src="${currentData[1].productImage}" alt="" />
+              <img src="${currentData[i].productImage}" alt="" />
             </td>
-            <td class="ID">${currentData[2].productID}</td>
-            <td class="name">${currentData[2].productName}</td>
-            <td class="price">$${currentData[2].productPrice}</td>
+            <td class="ID">${currentData[i].productID}</td>
+            <td class="name">${currentData[i].productName}</td>
+            <td class="price">$${currentData[i].productPrice}</td>
             <td>
               <input
                 type="number"
@@ -28,27 +28,13 @@ let cartData =`
             </td>
             <td class="subtotal">$78</td>
           </tr>
-           </tbody> 
-
+          </table>
 `;
-//           const cartDisplay = document.querySelector('.section-p1')
-//           cartDisplay.innerHTML+=cartData;
+          const cartDisplay = document.querySelector('.section-p1')
+          cartDisplay.innerHTML+=cartData;
+
+}
+
+// remove button 
 
 
-
-//          let cardshow = `
-                     
-         
-         
-//          `
-
-//          <tbody> 
-//   <tr>
-//     <td><a href="#"> <i class="far fa-times-circle"> </i></a></td>
-//     <td> <img src="images/card1.jpg" alt=""></td>
-//     <td> t shirts</td>
-//     <td>$122</td>
-//     <td> <input type="number" value="1"></td>
-//     <td>$43</td>
-//   </tr>
-// </tbody>
