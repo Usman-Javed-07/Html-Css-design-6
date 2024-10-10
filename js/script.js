@@ -150,4 +150,3 @@ let cartitems = [];
  }
 
 
- console.log (' local storage data' , localStorage.getItem('product Data'))
