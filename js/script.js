@@ -148,6 +148,6 @@ let cartitems = [];
   localStorage.setItem('product Data', JSON.stringify(cartitems));
 
  }
-
-
  console.log (' local storage data' , localStorage.getItem('product Data'))
+
+ 
