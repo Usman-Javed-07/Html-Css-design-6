@@ -53,3 +53,34 @@ function removeItem(index) {
 renderCart();
 
 
+
+
+
+//  subtotal 
+const newSubTotal = quantity * unitprice 
+
+
+
+
+let cart = JSON.parse(localStorage.getItem('product data'));
+const cartEntryIndex = cart.findIndex( (entry) => entry[0] ==== cartEntryId)
+
+
+
+let cart = JSON.parse(localStorage.getItem("products"));
+const cartEntryIndex = cart.findIndex(
+    (entry) => entry[0] === cartEntryId
+);
+cart[cartEntryIndex][1] = quantity;
+localStorage.setItem("products", JSON.stringify(cart));
+// we can similarly capture the unit product rate
+const unitPrice = parseInt(
+    cartEntry.querySelector(".price").innerText.substring(1),
+    10
+);
+const newSubtotal = quantity * unitPrice;
+cartEntry.querySelector(".subtotal").innerText = `$${newSubtotal}`;
+// Might as Well Update the Grand Total from here and suply it with the parent to
+// the table row since we are looking to then collect all of the item's subtotals
+updateGrandtotal(cartEntry.parentElement);
+}

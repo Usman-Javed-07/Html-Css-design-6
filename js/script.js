@@ -106,7 +106,7 @@ const productItems = [
 },
 ]
 
-for (let i = 0 ; i < productItems.length-1; i++) {
+for (let i = 0 ; i < productItems.length; i++) {
 
   let k=`
  
@@ -150,4 +150,3 @@ let cartitems = [];
  }
  console.log (' local storage data' , localStorage.getItem('product Data'))
 
- 
