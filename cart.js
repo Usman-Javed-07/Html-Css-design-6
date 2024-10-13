@@ -186,7 +186,7 @@ function applyCoupon() {
   const couponInput = document.querySelector('#coupon input');
   const couponCode = couponInput.value.trim();
   const validCoupon = 'usman123'; // Valid coupon code
-  const discountRate = 0.10; // 10% discount
+  const discountRate = 0.20; // 20% discount
 
   const subtotalElement = document.querySelector('.sumSubTotals');
   const totalElement = document.querySelector('.grandTotal strong');

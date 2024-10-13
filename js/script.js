@@ -150,3 +150,89 @@ let cartitems = [];
  }
  console.log (' local storage data' , localStorage.getItem('product Data'))
 
+
+
+//  
+
+
+
+// 
+
+// Sample cart data (you can replace this with real cart items)
+// const cartItems = [
+//   { id: 1, name: 'Item 1', price: 10 },
+//   { id: 2, name: 'Item 2', price: 20 },
+//   { id: 3, name: 'Item 3', price: 30 },
+//   { id: 4, name: 'Item 4', price: 40 },
+//   { id: 5, name: 'Item 5', price: 50 },
+//   { id: 6, name: 'Item 6', price: 60 },
+//   { id: 7, name: 'Item 7', price: 70 },
+//   { id: 8, name: 'Item 8', price: 80 }
+// ];
+
+// Variables to control pagination
+let currentPage = 1;
+let itemsPerPage = 2;
+
+// Function to display cart items based on current page and items per page
+function displayCartItems() {
+  const cartContainer = document.getElementById('cartItems');
+  cartContainer.innerHTML = ''; // Clear previous items
+
+  // Get selected items per page
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const itemsToDisplay = productItems.slice(startIndex, endIndex);
+
+  // Display the selected items
+  itemsToDisplay.forEach(item => {
+    const itemElement = document.createElement('div');
+    itemElement.classList.add('cart-item');
+    itemElement.innerHTML = `
+      <p>${item.name}</p>
+      <p>Price: $${item.price}</p>
+    `;
+    cartContainer.appendChild(itemElement);
+  });
+
+  // Update pagination info
+  updatePaginationInfo();
+}
+
+// Function to update pagination controls
+function updatePaginationInfo() {
+  const totalItems = productItems.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  document.getElementById('pageInfo').textContent = `Page ${currentPage} of ${totalPages}`;
+
+  // Enable/disable pagination buttons
+  document.getElementById('prevPage').disabled = currentPage === 1;
+  document.getElementById('nextPage').disabled = currentPage === totalPages;
+}
+
+// Event listener for items per page dropdown
+document.getElementById('itemsPerPage').addEventListener('change', function () {
+  itemsPerPage = parseInt(this.value); // Update items per page
+  currentPage = 1; // Reset to the first page
+  displayCartItems(); // Refresh cart items
+});
+
+// Event listeners for pagination buttons
+document.getElementById('prevPage').addEventListener('click', function () {
+  if (currentPage > 1) {
+    currentPage--;
+    displayCartItems();
+  }
+});
+
+document.getElementById('nextPage').addEventListener('click', function () {
+  const totalPages = Math.ceil(productItems.length / itemsPerPage);
+  if (currentPage < totalPages) {
+    currentPage++;
+    displayCartItems();
+  }
+});
+
+// Initial display of cart items
+displayCartItems();
