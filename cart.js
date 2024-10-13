@@ -218,3 +218,21 @@ function applyCoupon() {
 
 // Attach event listener to the "Apply" button in the coupon section
 document.querySelector('#coupon button').addEventListener('click', applyCoupon);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

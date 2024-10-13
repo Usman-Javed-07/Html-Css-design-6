@@ -39,7 +39,7 @@
     <!-- end of header -->
     <section>
       <div class="shop-categories">
-        <div class="page-items">
+        <!-- <div class="page-items">
           <h3>Items Per Page</h3>
           <select name="items" id="page-item">
             <option value="1">4</option>
@@ -47,8 +47,35 @@
             <option value="1">16</option>
             <option value="1">40</option>
           </select>
+        </div> -->
+        <!-- 
+        
+
+
+-->
+        <div class="page-items">
+          <h3>Items Per Page</h3>
+          <select name="items" id="page-item">
+            <option value="4">4</option>
+            <option value="8">8</option>
+            <option value="16">16</option>
+            <option value="40">40</option>
+          </select>
         </div>
-        <!--  -->
+
+        <div id="cartItems"></div>
+
+        <div id="pagination">
+          <button id="prevPage" disabled>Previous</button>
+          <span id="pageInfo">Page 1 of 1</span>
+          <button id="nextPage">Next</button>
+        </div>
+
+        <!-- 
+
+
+
+        -->
         <div class="search-shop-item">
           <i class="fa-solid fa-magnifying-glass"></i>
           <input
