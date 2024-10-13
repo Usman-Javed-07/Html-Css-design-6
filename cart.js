@@ -85,4 +85,136 @@ renderCart();
 
 
 
-// 
+// // 
+
+
+
+// Function to render the cart and calculate totals
+function renderCart() {
+  const cartDisplay = document.querySelector('tbody'); // tbody for table structure
+  const subtotalElement = document.querySelector('.sumSubTotals');
+  const totalElement = document.querySelector('.grandTotal strong');
+  cartDisplay.innerHTML = ''; 
+  
+  let totalSubtotal = 0; // Track the subtotal for all items
+
+  for (let i = 0; i < currentData.length; i++) {
+    let cartData = `
+      <tr>
+        <td class="remove">
+          <button onclick="removeItem(${i})" class="remove-Btn">
+            <i class="fa fa-times-circle"></i>
+          </button>
+        </td>
+        <td class="imgAddress">
+          <img src="${currentData[i].productImage}" alt="" />
+        </td>
+        <td class="ID">${currentData[i].productID}</td>
+        <td class="name">${currentData[i].productName}</td>
+        <td class="price">$${currentData[i].productPrice.toFixed(2)}</td>
+        <td>
+          <input
+            type="number"
+            value="1"
+            min="1"
+            class="quantity-input"
+            onchange="updateSubtotal(${i})"
+          />
+        </td>
+        <td class="subtotal">$${currentData[i].productPrice.toFixed(2)}</td>
+      </tr>
+    `;
+    cartDisplay.innerHTML += cartData;
+
+    // Add to the subtotal for all items
+    totalSubtotal += currentData[i].productPrice;
+  }
+
+  // Update subtotal in the cart totals section
+  subtotalElement.innerText = `$${totalSubtotal.toFixed(2)}`;
+
+  // Update the total with shipping (assuming shipping is free)
+  let shippingCost = 0; // You can change this if you want to add shipping fees
+  let grandTotal = totalSubtotal + shippingCost;
+  totalElement.innerText = `$${grandTotal.toFixed(2)}`;
+}
+
+// Function to update subtotal when quantity changes
+function updateSubtotal(index) {
+  const quantityInput = document.querySelectorAll('.quantity-input')[index];
+  const price = currentData[index].productPrice;
+  const newSubtotal = quantityInput.value * price;
+
+  // Update the subtotal in the table row
+  document.querySelectorAll('.subtotal')[index].innerText = `$${newSubtotal.toFixed(2)}`;
+
+  // Update cart totals
+  updateTotalPrice();
+}
+
+// Function to update the total price in the cart totals section
+function updateTotalPrice() {
+  let totalSubtotal = 0;
+  const subtotals = document.querySelectorAll('.subtotal');
+
+  // Loop through each subtotal and add it to the totalSubtotal
+  subtotals.forEach((subtotal) => {
+    totalSubtotal += parseFloat(subtotal.innerText.replace('$', ''));
+  });
+
+  // Update subtotal in the cart totals section
+  const subtotalElement = document.querySelector('.sumSubTotals');
+  subtotalElement.innerText = `$${totalSubtotal.toFixed(2)}`;
+
+  // Add shipping cost if needed
+  let shippingCost = 0; // Adjust as needed
+  let grandTotal = totalSubtotal + shippingCost;
+
+  // Update the grand total
+  const totalElement = document.querySelector('.grandTotal strong');
+  totalElement.innerText = `$${grandTotal.toFixed(2)}`;
+}
+
+// Call renderCart to initialize the cart
+renderCart();
+
+
+
+
+// Function to apply the coupon
+function applyCoupon() {
+  const couponInput = document.querySelector('#coupon input');
+  const couponCode = couponInput.value.trim();
+  const validCoupon = 'usman123'; // Valid coupon code
+  const discountRate = 0.10; // 10% discount
+
+  const subtotalElement = document.querySelector('.sumSubTotals');
+  const totalElement = document.querySelector('.grandTotal strong');
+  const errorElement = document.querySelector('#coupon h4');
+
+  // Get current subtotal
+  let subtotal = parseFloat(subtotalElement.innerText.replace('$', ''));
+
+  // Check if the entered coupon code is valid
+  if (couponCode === validCoupon) {
+    // Apply discount
+    let discountAmount = subtotal * discountRate;
+    let newTotal = subtotal - discountAmount;
+
+    // Update the grand total after applying the discount
+    totalElement.innerText = `$${newTotal.toFixed(2)}`;
+    
+    // Hide any previous error message
+    errorElement.style.display = 'none';
+
+    // Optional: Show a success message (you can style it as needed)
+    alert(`Coupon applied! You saved $${discountAmount.toFixed(2)}`);
+  } else {
+    // Show invalid coupon message
+    errorElement.innerText = 'Invalid Code';
+    errorElement.style.display = 'block'; // Make sure the error message is shown
+  }
+}
+
+// Attach event listener to the "Apply" button in the coupon section
+document.querySelector('#coupon button').addEventListener('click', applyCoupon);
