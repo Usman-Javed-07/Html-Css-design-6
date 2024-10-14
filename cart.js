@@ -225,6 +225,75 @@ document.querySelector('#coupon button').addEventListener('click', applyCoupon);
 
 
 
+// 
+
+
+// 
+
+
+let currentPage = 1;
+let itemsPerPage = 4; // Default value
+
+// Function to display cart items based on current page and items per page
+function displayCartItems() {
+  const cartContainer = document.getElementById('cartItems');
+  cartContainer.innerHTML = ''; // Clear previous items
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const itemsToDisplay = productItems.slice(startIndex, endIndex);
+
+  // Display the selected items
+  itemsToDisplay.forEach((item) => {
+    const itemElement = document.createElement('div');
+    itemElement.classList.add('cart-item');
+    itemElement.innerHTML = `
+      <p>${item.productName}</p>
+      <p>Price: $${item.productPrice}</p>
+    `;
+    cartContainer.appendChild(itemElement);
+  });
+
+  // Update pagination info
+  updatePaginationInfo();
+}
+
+// Function to update pagination controls
+function updatePaginationInfo() {
+  const totalItems = productItems.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  document.getElementById('pageInfo').textContent = `Page ${currentPage} of ${totalPages}`;
+
+  document.getElementById('prevPage').disabled = currentPage === 1;
+  document.getElementById('nextPage').disabled = currentPage === totalPages;
+}
+
+// Event listener for items per page dropdown
+document.getElementById('page-item').addEventListener('change', function () {
+  itemsPerPage = parseInt(this.value); // Update items per page based on selection
+  currentPage = 1; // Reset to the first page
+  displayCartItems(); // Refresh cart items
+});
+
+// Event listeners for pagination buttons
+document.getElementById('prevPage').addEventListener('click', function () {
+  if (currentPage > 1) {
+    currentPage--;
+    displayCartItems();
+  }
+});
+
+document.getElementById('nextPage').addEventListener('click', function () {
+  const totalPages = Math.ceil(productItems.length / itemsPerPage);
+  if (currentPage < totalPages) {
+    currentPage++;
+    displayCartItems();
+  }
+});
+
+// Initial display of cart items
+displayCartItems();
 
 
 
@@ -236,3 +305,4 @@ document.querySelector('#coupon button').addEventListener('click', applyCoupon);
 
 
 
+// 
