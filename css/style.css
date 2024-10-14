@@ -57,7 +57,7 @@ nav {
 }
 @media screen and (max-width:767px) {
 .fa-cart-shopping {
-        display: none;
+        /* display: none; */
     }
     .fa-thumbs-up {
         display: block;
