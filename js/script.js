@@ -12,9 +12,6 @@ if(pageName === "index.html") {
 }
 
 //  add to card
-
-
-
 const productItems = [
   {
         productID : 19,
@@ -149,13 +146,4 @@ let cartitems = [];
 
  }
  console.log (' local storage data' , localStorage.getItem('product Data'))
-
-
-
-//  
-
-
-
-// // 
-
 
