@@ -4,8 +4,6 @@ const path = require('path')
 const app = express()
 
 const connectDB = require('./db/databse')
-
-app.use('/js', express.static('js'))
 app.use(express.static('./public'))
 
 
