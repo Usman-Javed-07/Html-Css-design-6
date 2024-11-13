@@ -3,15 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cara | About</title>
+    <title>care | shop</title>
     <script
       src="https://kit.fontawesome.com/d0289aff24.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- navbar -->
     <nav>
       <div class="nav-bar collapsible">
         <div class="nav-image">
@@ -31,106 +30,93 @@
         <div class="menu-icon" id="menuIcon" onclick="toggleMenu()">☰</div>
       </div>
     </nav>
-    <!-- end of nav section -->
+    <div class="shop-items">
+      <div class="shop-item-data">
+        <h3># Stay Home</h3>
+        <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+    <!-- end of header -->
+    <section>
+      <div class="shop-categories">
+        <!-- 
+        
 
-    <header>
-      <div class="about-header">
-        <div class="about-header-data">
-          <h3># Knows Us</h3>
-          <p>Lorem ipsum dolor sit amet.</p>
+
+-->
+        <div class="page-items">
+          <h3>Items Per Page</h3>
+          <select name="items" id="page-item">
+            <option value="4">4</option>
+            <option value="8">8</option>
+            <option value="16">16</option>
+            <option value="40">40</option>
+          </select>
+        </div>
+
+        <!-- <div id="cartItems"></div>
+
+        <div id="pagination">
+          <button id="prevPage" disabled>Previous</button>
+          <span id="pageInfo">Page 1 of 1</span>
+          <button id="nextPage">Next</button>
+        </div> -->
+
+        <div class="search-shop-item">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            class="shop-input"
+            type="search"
+            name="product"
+            placeholder="Search Product"
+          />
+        </div>
+        <div class="category">
+          <h3>Categories:</h3>
+          <input type="radio" name="men" id="shirts" />
+          <label for="shirts" class="label-inline">Men</label>
+          <input type="radio" name="men" id="shirts" />
+          <label for="shirts" class="label-inline">Women</label>
+          <input type="radio" name="men" id="shirts" />
+          <label for="shirts" class="label-inline">Shirts</label>
+          <input type="radio" name="men" id="shirts" />
+          <label for="shirts" class="label-inline">Pants</label>
         </div>
       </div>
-    </header>
+    </section>
+    <!-- -->
+
+    <!-- card items -->
+    <section>
+      <div class="card-section">
+        <!-- <div class="main-card">
+          <div class="card-image">
+            <img src="images/card1.jpg" alt="card image" />
+          </div>
+          <div class="card-data">
+            <p>Adidas</p>
+            <h3>Cartoon Shirt</h3>
+            <div class="star">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <h3 class="price">$78</h3>
+            <p class="product-id">Product iD :- 19</p>
+            <div class="card-shopping">
+              <button>
+                <i class="fa-solid fa-cart-shopping add-card"></i>
+              </button>
+            </div>
+          </div>
+        </div> -->
+
+        <!--  -->
+      </div>
+    </section>
     <!--  -->
-    <section>
-      <div class="about-us-section">
-        <div class="about--img">
-          <img src="images/a6.jpg" alt="" />
-        </div>
-        <div class="about--info">
-          <h3>Who We Are ?</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo neque,
-            nihil sit incidunt beatae consectetur <br />
-            vero consequatur iste rem minus corporis dolores quam modi soluta
-            id, amet itaque quisquam, excepturi<br />
-            esse reprehenderit fuga repellendus voluptatum officiis laboriosam?
-            Enim quasi veritatis xsgscfav ftndnh <br />repellendus voluptas
-            aperiam impedit sapiente rerum modi officiis, recusandae
-            voluptatibus explicabo cua <br />et? Illo enim incidunt modi beatae
-            labore molestias fuga ut quae iusto pariatur cumque animi voluptate
-            odio
-            <br />
-            aperiam at, minima eum ad quaerat provident cupiditate.
-            Consequuntur, ipsum?
-          </p>
-          <p class="about-p">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-            corporis ipsam, consequatur ea delectus consequuntur!
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="order-section">
-        <div class="order-data">
-          <div class="order-image">
-            <img src="images/f1.png" alt="free shipping" />
-          </div>
-          <div class="order-button">
-            <a class="order-btn" href="#">Free Shipping</a>
-          </div>
-        </div>
-        <!--  -->
-        <div class="order-data f2">
-          <div class="order-image">
-            <img src="images/f2.png" alt="free shipping" />
-          </div>
-          <div class="order-button">
-            <a class="order-btn" href="#">Online Order</a>
-          </div>
-        </div>
-        <!--  -->
-        <div class="order-data f3">
-          <div class="order-image">
-            <img src="images/f3.png" alt="free shipping" />
-          </div>
-          <div class="order-button">
-            <a class="order-btn" href="#">Save Money</a>
-          </div>
-        </div>
-        <!--  -->
-        <div class="order-data f4">
-          <div class="order-image">
-            <img src="images/f4.png" alt="free shipping" />
-          </div>
-          <div class="order-button">
-            <a class="order-btn" href="#">Promotions</a>
-          </div>
-        </div>
-        <!--  -->
-        <div class="order-data f5">
-          <div class="order-image">
-            <img src="images/f5.png" alt="free shipping" />
-          </div>
-          <div class="order-button">
-            <a class="order-btn" href="#">Happy Sell</a>
-          </div>
-        </div>
-        <!--  -->
-        <div class="order-data f6">
-          <div class="order-image">
-            <img src="images/f6.png" alt="free shipping" />
-          </div>
-          <div class="order-button">
-            <a class="order-btn" href="#">24/7 Support</a>
-          </div>
-        </div>
-        <!--  -->
-      </div>
-    </section>
-    <!-- end of oder section -->
     <!-- signup section -->
     <section class="sign-up">
       <div class="signup">
@@ -206,6 +192,6 @@
       <p class="copyright-to">&copy; 2024 by Usman Javed</p>
     </footer>
     <!-- <script src="js/script.js"></script> -->
-    <!-- <script src="cart.js"></script> -->
+    <script src="script.js"></script>
   </body>
 </html>

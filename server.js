@@ -1,15 +1,23 @@
+require('dotenv').config()
 const express = require('express')
 const path = require('path')
 const app = express()
 
-app.use('/css', express.static('css'))
-app.get('/', (req , res)=>{
-    res.sendFile(path.join(__dirname, 'index.html'))
-})
-app.get('/', (req , res)=> {
-    res.sendFile(path.join(__dirname, 'shop.html'))
-})
-app.listen(5000 , () => {
-    console.log(`Cara|  server is listing on port 5000`);
-    
-})
+const connectDB = require('./db/databse')
+
+app.use('/js', express.static('js'))
+app.use(express.static('./public'))
+
+
+const port = process.env.PORT || 5000
+const start = async ()=> {
+    try {
+        await connectDB(process.env.MONGO_URI)
+        app.listen(port , console.log(`CARA server is listing on port ${port}`)
+        )
+    } catch (error) {
+        console.log(error);
+        
+    }
+}
+start()
