@@ -10,7 +10,8 @@
     "productID": 37,
     "productName": "Havain shirt",
     "productImage": "images/card2.jpg",
-    "productBrand": " Chanel"
+    "productBrand": "Chanel",
+    "productPrice": 111
   },
   {
     "productID": 46,
@@ -27,11 +28,11 @@
     "productPrice": 99
   },
   {
-    "productID ": 307,
-    "productName ": "off white shirt",
+    "productID": 307,
+    "productName": "off white shirt",
     "productImage": "images/card5.jpg",
-    "productBrand ": "H3h3",
-    "productPrice ": 76
+    "productBrand": "H3h3",
+    "productPrice": 76
   },
   {
     "productID": 110,
@@ -42,37 +43,37 @@
   },
   {
     "productID": 115,
-    "productName ": "blue Cargo Pants",
+    "productName": "blue Cargo Pants",
     "productImage": "images/card7.jpg",
-    "productBrand": " H3h3",
+    "productBrand": "H3h3",
     "productPrice": 210
   },
   {
     "productID": 130,
-    "productName ": "Brown Cargo Pants",
+    "productName": "Brown Cargo Pants",
     "productImage": "images/card8.jpg",
-    "productBrand ": "Adidas",
+    "productBrand": "Adidas",
     "productPrice": 230
   },
   {
-    " productID": 64,
-    "productNam": "winter shirt",
-    "productImage": "images/f6.jp",
-    "productBran": "Non",
+    "productID": 64,
+    "productName": "winter shirt",
+    "productImage": "images/f6.jpg",
+    "productBrand": "Non",
     "productPrice": 8
   },
   {
     "productID": 73,
-    "productName ": "Pants",
+    "productName": "Pants",
     "productImage": "images/f7.jpg",
-    "productBrand": " H3h3",
+    "productBrand": "H3h3",
     "productPrice": 875
   },
   {
     "productID": 82,
-    "productName ": "ladies shirts",
+    "productName": "ladies shirts",
     "productImage": "images/f8.jpg",
-    "productBrand ": "H3h3",
+    "productBrand": "H3h3",
     "productPrice": 82
   }
 ]
