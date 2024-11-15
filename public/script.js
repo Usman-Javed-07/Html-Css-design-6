@@ -7,143 +7,78 @@ collapsibles.forEach((item) =>
 
 const pathName = window.location.pathname;
 const pageName = pathName.split("/").pop();
-if(pageName === "index.html") {
-  document.querySelector (".home").classList.add("activeLink");
+if (pageName === "index.html") {
+  document.querySelector(".home").classList.add("activeLink");
 }
 
-//  add to card
-const productItems = [
-  {
-        productID : 19,
-        productName : 'carton shirt',
-        productImage : 'images/card1.jpg',
-        productBrand : 'Adidas',
-        productPrice : 78,
-        // categories : ['men' , 'shirts', 'featured'],
-  },
-  {
-    productID : 37,
-    productName : 'Havain shirt',
-    productImage : 'images/card2.jpg',
-    productBrand : 'Chanel',
-    productPrice : 111,
-    // categories : ['men' , 'shirts', 'featured'],
-},
-{
-  productID : 46,
-  productName : 'Printed shirt',
-  productImage : 'images/card3.jpg',
-  productBrand : 'Prada',
-  productPrice : 265,
-  // categories : ['men' , 'shirts', 'featured'],
-},
-{
-  productID : 55,
-  productName : 'Emo-Boy Shirt',
-  productImage : 'images/card4.jpg',
-  productBrand : 'GAP',
-  productPrice : 99,
-  // categories : ['men' , 'shirts', 'featured'],
-},
-{
-  productID : 307,
-  productName : 'off white shirt',
-  productImage : 'images/card5.jpg',
-  productBrand : 'H3h3',
-  productPrice : 76,
-  // categories : ['men' , 'shirts', 'featured'],
-},
-{
-  productID : 110,
-  productName : 'green Cargo Pants',
-  productImage : 'images/card6.jpg',
-  productBrand : 'Adidas',
-  productPrice : 290,
-  // categories : ['men' , 'pants', 'featured'],
-},
-{
-  productID : 115,
-  productName : ' blue Cargo Pants',
-  productImage : 'images/card7.jpg',
-  productBrand : 'H3h3',
-  productPrice : 210,
-  // categories : ['men' , 'pants', 'featured'],
-},
-{
-  productID : 130,
-  productName : 'Brown Cargo Pants',
-  productImage : 'images/card8.jpg',
-  productBrand : 'Adidas',
-  productPrice : 230,
-  // categories : ['men' , 'pants', 'featured'],
-},
-{
-  productID : 64,
-  productName : 'winter shirts',
-  productImage : 'images/f6.jpg',
-  productBrand : 'None',
-  productPrice : 8,
-  // categories : ['men' , 'shirts', 'featured'],
-},
-{
-  productID : 73,
-  productName : 'Pants',
-  productImage : 'images/f7.jpg',
-  productBrand : 'H3h3',
-  productPrice : 875,
-  // categories : ['women' , 'pants', 'featured'],
-},
-{
-  productID : 82,
-  productName : 'ladies shirts',
-  productImage : 'images/f8.jpg',
-  productBrand : 'H3h3',
-  productPrice : 82,
-  // categories : ['women' , 'shirts', 'featured'],
-},
-]
+let productItems = [];
+let cartItems = JSON.parse(localStorage.getItem("productData")) || [];
 
-for (let i = 0 ; i < productItems.length; i++) {
+// Fetch product data from the backend
+async function fetchProducts() {
+  try {
+    const response = await fetch("/api/products");
+    if (!response.ok) throw new Error("Failed to fetch products");
 
-  let k=`
- 
-        <div class="main-card">
-          <div class="card-image">
-           <img src=${productItems[i].productImage} alt="card image" />
+    productItems = await response.json();
+    displayProducts();
+  } catch (error) {
+    console.error("Error fetching products:", error);
+  }
+}
+
+function displayProducts() {
+  const cardSection = document.querySelector(".card-section");
+  cardSection.innerHTML = "";
+
+  productItems.forEach((product) => {
+    const productHTML = `
+      <div class="main-card">
+        <div class="card-image">
+          <img src="${product.productImage}" alt="card image" />
+        </div>
+        <div class="card-data">
+          <p>${product.productBrand}</p>
+          <h3>${product.productName}</h3>
+          <div class="star">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
           </div>
-          <div class="card-data">
-            <p>${productItems[i].productBrand}</p>
-            <h3> ${productItems[i].productName}</h3>
-            <div class="star">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-            <h3 class="price">$ ${productItems[i].productPrice}</h3>
-            <p class="product-id">Product iD :- ${productItems[i].productID}</p>
-            <div class="card-shopping">
-              <button onclick="cardData(${productItems[i].productID})">
-                <i class="fa-solid fa-cart-shopping add-card"></i>
-              </button>
-            </div>
+          <h3 class="price">$${product.productPrice}</h3>
+          <p class="product-id">Product ID: ${product._id}</p>
+          <div class="card-shopping">
+            <button onclick="addToCart('${product._id}')">
+              <i class="fa-solid fa-cart-shopping add-card"></i>
+            </button>
           </div>
         </div>
-  `
-  const cardSection=document.querySelector(".card-section");
-  cardSection.innerHTML+=k;
+      </div>
+    `;
+    cardSection.innerHTML += productHTML;
+  });
 }
 
-let cartitems = [];
+// Add item to cart and save to localStorage
+function addToCart(productId) {
+  const selectedProduct = productItems.find(
+    (product) => product._id === productId
+  );
 
- const cardData = (productid ) => {
-  let result = productItems.find(obj => obj.productID ===  productid);
-  cartitems.push(result)
-  console.log(cartitems);
+  if (selectedProduct) {
+    const existingItem = cartItems.find((item) => item._id === productId);
 
-  localStorage.setItem('product Data', JSON.stringify(cartitems));
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      selectedProduct.quantity = 1;
+      cartItems.push(selectedProduct);
+    }
 
- }
- console.log (' local storage data' , localStorage.getItem('product Data'))
-
+    localStorage.setItem("productData", JSON.stringify(cartItems));
+    alert("Product added to cart!");
+  }
+}
+window.onload = fetchProducts;

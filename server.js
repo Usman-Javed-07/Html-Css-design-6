@@ -3,13 +3,25 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const connectDB = require("./db/databse");
-const productsRouter = require("./routes/routes");
+const { get } = require("http");
+const Product = require("./models/Product");
+// const productsRouter = require("./routes/routes");
 
-app.use(express.json()); // To handle JSON payloads
+app.use(express.json());
 app.use(express.static("./public"));
-app.use("/api/products", productsRouter); // Use the router
+// app.use("/api/products", productsRouter);
 
 const port = process.env.PORT || 5000;
+
+// getting the product form database
+app.get("/api/products", async (req, res) => {
+  try {
+    const products = await Product.find();
+    res.status(200).json(products);
+  } catch (error) {
+    res.status(500).json({ error: "Faild to fetch products" });
+  }
+});
 
 const startServer = async () => {
   try {
@@ -24,5 +36,3 @@ const startServer = async () => {
 };
 
 startServer();
-
-// // end
