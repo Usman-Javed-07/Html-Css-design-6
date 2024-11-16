@@ -1313,8 +1313,11 @@ textarea {
     background-color: #088178;
     color: #fff;
     padding: 12px 20px;
+    cursor: pointer;
 }
-
+#coupon button:hover {
+    background-color: #000;
+}
 #coupon h4 {
     display: none;
     padding: 2rem;
@@ -1610,6 +1613,7 @@ button.normal {
     border: none;
     border-radius: 5px;
 }
+
 
 .imgAdress img {
     width: 40px;
