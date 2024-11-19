@@ -389,3 +389,5 @@
 // document.querySelector("#coupon button").addEventListener("click", applyCoupon);
 
 // //
+
+<!-- the above code is written before adding backend functionality -->
