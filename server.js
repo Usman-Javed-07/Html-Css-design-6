@@ -6,11 +6,14 @@ const connectDB = require("./db/databse");
 const { get } = require("http");
 const Product = require("./models/Product");
 // const productsRouter = require("./routes/routes");
-
+const cors = require("cors");
 app.use(express.json());
 app.use(express.static("./public"));
 // app.use("/api/products", productsRouter);
-
+const corsOptions = {
+  origin: "http://localhost:5174",
+};
+app.use(cors(corsOptions));
 const port = process.env.PORT || 5000;
 
 // getting the product form database
